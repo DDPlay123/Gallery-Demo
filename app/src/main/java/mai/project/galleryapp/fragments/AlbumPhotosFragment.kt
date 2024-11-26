@@ -3,6 +3,7 @@ package mai.project.galleryapp.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.navArgs
+import mai.project.galleryapp.MainActivity
 import mai.project.galleryapp.adapters.PhotoAdapter
 import mai.project.galleryapp.base.BaseFragment
 import mai.project.galleryapp.databinding.FragmentAlbumPhotosBinding
@@ -20,10 +21,12 @@ class AlbumPhotosFragment : BaseFragment<FragmentAlbumPhotosBinding>(
     private val photoAdapter by lazy { PhotoAdapter() }
 
     override fun FragmentAlbumPhotosBinding.destroy() {
+        (activity as? MainActivity)?.showBottomBar(true)
         photoAdapter.submitList(null)
     }
 
     override fun FragmentAlbumPhotosBinding.initialize(view: View, savedInstanceState: Bundle?) {
+        (activity as? MainActivity)?.showBottomBar(false)
         rvPhotos.adapter = photoAdapter
         loadPhotos()
     }

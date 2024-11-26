@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -49,6 +50,15 @@ class MainActivity : AppCompatActivity() {
         this.anchorView = anchorView
         animationMode = Snackbar.ANIMATION_MODE_FADE
         show()
+    }
+
+    /**
+     * 顯示/隱藏 BottomBar
+     */
+    fun showBottomBar(
+        isShow: Boolean
+    ) {
+        binding.bottomNavigation.isVisible = isShow
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
