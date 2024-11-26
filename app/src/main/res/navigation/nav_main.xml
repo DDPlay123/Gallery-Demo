@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/photosFragment">
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="mai.project.galleryapp.fragments.PhotosFragment"
+        android:label="fragment_photos"
+        tools:layout="@layout/fragment_photos" />
+
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="mai.project.galleryapp.fragments.AlbumsFragment"
+        android:label="fragment_albums"
+        tools:layout="@layout/fragment_albums">
+        <action
+            android:id="@+id/action_albumsFragment_to_albumPhotosFragment"
+            app:destination="@id/albumPhotosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumPhotosFragment"
+        android:name="mai.project.galleryapp.fragments.AlbumPhotosFragment"
+        android:label="fragment_album_photos"
+        tools:layout="@layout/fragment_album_photos">
+        <argument
+            android:name="bucketId"
+            app:argType="string" />
+        <argument
+            android:name="bucketName"
+            app:argType="string" />
+    </fragment>
+</navigation>
