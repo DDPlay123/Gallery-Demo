@@ -43,7 +43,7 @@ object AlbumUtil {
                 if (albumSet.contains(bucketId)) continue // 如果已經處理過此相簿，則跳過
                 albumSet.add(bucketId)
 
-                val bucketName = it.getString(bucketNameColumn)
+                val bucketName = it.getString(bucketNameColumn).orEmpty()
                 val coverPhotoUri = Uri.withAppendedPath(
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     it.getLong(idColumn).toString()
